@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   def follow
     follow_user = User.find(params[:id])
     @current_user.followees << follow_user
-    render json: @current_user.followees.last
+    render json: follow_user
   end
   
   def following
