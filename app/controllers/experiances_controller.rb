@@ -1,0 +1,2 @@
+class ExperiancesController < ApplicationController
+end
