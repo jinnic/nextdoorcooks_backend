@@ -6,7 +6,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       t.integer :duration, array: true
       t.string :ingredients, array: true
       t.string :instructions, array: true
-
+      t.integer :user_id
       t.timestamps
     end
     #add index : not sure why

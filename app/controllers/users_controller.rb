@@ -33,6 +33,55 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    user = User.find(params[:id])
+    if user 
+        render json: user 
+    else 
+        render json: { error: "Not found"}, status: 404
+    end
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    render json: user
+  end
+
+  def update
+      user = User.find(params[:id])
+      user.update(user_params)
+      render json: user
+  end
+
+  def follow
+    follow_user = User.find(params[:id])
+    @current_user.followees << follow_user
+    render json: follow_user
+  end
+  
+  def following
+    user = User.find_by(username: params[:username])
+    render json: user.followees 
+  end
+
+  def followers
+    user = User.find_by(username: params[:username])
+    render json: user.followers
+  end
+
+  def unfollow
+    unfollow_user = User.find(params[:id])
+    @current_user.followed_users.find_by(followee_id: unfollow_user.id).destroy
+    render json: {}
+  end
+
+  def recipes
+    user = User.find_by(username: params[:username])
+    # render json: {recipes: user.recipes}
+    render json: user.recipes 
+  end
+
   def login
     user = User.find_by(username: params[:username])
 
