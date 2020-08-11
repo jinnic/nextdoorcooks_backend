@@ -1,5 +1,13 @@
 class LikesController < ApplicationController
-  before_filter :find_liker
+  # before_action :find_liker
+  def index
+    likes = Like.all
+    if likes
+      render json: likes
+    else
+      render json: {message: "no likes available"}
+    end 
+  end
 
   def create
     like = liker.likes.create(params[:comments])

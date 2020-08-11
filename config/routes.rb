@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
-  resources :likes
+  # resources :likes
   resources :experiances
   resources :recipes
-  resources :raitings
+  # resources :raitings
   resources :users, only: [:create, :index]
+
+  resources :status_updates do
+    resources :likes
+    resources :recipes do
+      resources :likes
+    end
+  end
+
   get ":username/recipes", to: "users#recipes"
   post "/login", to: "users#login" 
   get "/autologin", to: "users#autologin"
@@ -13,6 +21,9 @@ Rails.application.routes.draw do
   get ':username/followers', to: "users#followers", as: "followers"
   post '/users/:id/follow', to: "users#follow", as: "follow_user"
   post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+
+
+
   # namespace :api do
   #   namespace :v1 do
   #     resources :users, only: [:create]

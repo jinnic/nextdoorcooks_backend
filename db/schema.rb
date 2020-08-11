@@ -57,15 +57,12 @@ ActiveRecord::Schema.define(version: 2020_08_07_034132) do
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "duration", array: true
-    t.string "ingredients", array: true
-    t.string "instructions", array: true
+    t.json "duration"
+    t.json "ingredients"
+    t.json "instructions"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["duration"], name: "index_recipes_on_duration", using: :gin
-    t.index ["ingredients"], name: "index_recipes_on_ingredients", using: :gin
-    t.index ["instructions"], name: "index_recipes_on_instructions", using: :gin
   end
 
   create_table "users", force: :cascade do |t|
