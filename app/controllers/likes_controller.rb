@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  # before_action :find_liker
+  before_action :find_likeable, only: [:create]
+
   def index
     likes = Like.all
     if likes
@@ -10,14 +11,32 @@ class LikesController < ApplicationController
   end
 
   def create
-    like = liker.likes.create(params[:comments])
+    like = Like.create(
+      user_id: params[:user_id],
+      likeable: @likeable
+    )
     
+    if like.valid?
+      render json: @likeable , status: :created
+    else
+      render json: {message: like.errors.full_messages}, status: :bad_request
+    end
+  end
+
+  def destroy
+    like = Like.find(params[:id])
+    like.destroy
+    recipe = Recipe.find(like.likeable_id)
+    render json: recipe
   end
 
   private
+  def find_likeable
+    @type = params[:likeable_type].constantize
+    @likeable = @type.find(params[:likeable_id])
+  end
 
-  def find_liker
-    type = params[:likeable_type].capitalize.constantize
-    liker = type.find(params [:likeable_id])
+  def find_user
+    user = User.find(params[:user_id])
   end
 end

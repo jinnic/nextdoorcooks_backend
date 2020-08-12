@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # put before_action in application_controller and use 
   # skip_before_action in users_controller.
   ## skip_before_action :authenticate, only: [:create, :login] ##
-  before_action :authenticate, only: [:autologin, :profile]
+  before_action :authenticate, only: [:autologin, :profile, :follow, :unfollow]
 
   def index
     users = User.all

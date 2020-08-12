@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def create
+    byebug
     recipe = Recipe.create(
       name: params[:name],
       duration: params[:duration],
@@ -37,7 +38,18 @@ class RecipesController < ApplicationController
       user_id: params[:user_id]
     )
     # recipes = Recipe.all
-    render json: recipe
+    if recipe.valid?
+      render json: recipe, status: :created
+    else
+      render json: {message: recipe.errors.full_messages}, status: :bad_request
+    end
   end
 
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe_id = recipe.id
+    recipe.destroy
+    # byebug
+    render json: recipe
+  end
 end

@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
-  # resources :likes
+  resources :likes
   resources :experiances
   resources :recipes
-  # resources :raitings
+  resources :ratings
   resources :users, only: [:create, :index]
 
-  resources :status_updates do
-    resources :likes
-    resources :recipes do
-      resources :likes
-    end
-  end
-
+  # resources :status_updates do
+  #   resources :likes
+  #   resources :recipes do
+  #     resources :likes
+  #   end
+  # end
   get ":username/recipes", to: "users#recipes"
   post "/login", to: "users#login" 
   get "/autologin", to: "users#autologin"
