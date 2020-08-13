@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
   validates :username, uniqueness: { case_sensitive: false }
-  has_many :recipes
-  has_many :experiances
-  has_many :ratings
-  has_many :likes
+  has_many :recipes, dependent: :destroy
+  has_many :experiances, dependent: :destroy
+  has_many :ratings, dependent: :destroy
+  has_many :likes, dependent: :destroy
   
   has_many :followed_users, foreign_key: :follower_id, class_name: 'Follow'
   has_many :followees, through: :followed_users

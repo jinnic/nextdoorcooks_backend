@@ -11,16 +11,23 @@ Rails.application.routes.draw do
   #     resources :likes
   #   end
   # end
-  get ":username/recipes", to: "users#recipes"
+  
+  
   post "/login", to: "users#login" 
   get "/autologin", to: "users#autologin"
   get "/logout", to: "users#logout"
   patch "/profile", to: "users#profile"
-  get ':username/following', to: "users#following", as: "following"
-  get ':username/followers', to: "users#followers", as: "followers"
-  post '/users/:id/follow', to: "users#follow", as: "follow_user"
-  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+  post '/follow/:id', to: "users#follow"
+  post '/unfollow/:id', to: "users#unfollow"
 
+  get '/users/:id/following', to: "users#following"
+  # get ':id/following', to: "users#following", as: "following"
+  # get ':username/followers', to: "users#followers", as: "followers"
+  # post '/users/:id/follow', to: "users#follow", as: "follow_user"
+  # post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+  
+  # get ":username/recipes", to: "users#recipes"
+  # get ":username", to: "users#find_user"
 
 
   # namespace :api do

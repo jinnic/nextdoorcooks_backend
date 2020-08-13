@@ -54,32 +54,38 @@ class UsersController < ApplicationController
       render json: user
   end
 
+  def following
+    user = User.find(params[:id])
+    render json: user.followees 
+  end
+
+  # def followers
+  #   user = User.find_by(username: params[:username])
+  #   render json: user.followers
+  # end
+
   def follow
     follow_user = User.find(params[:id])
     @current_user.followees << follow_user
     render json: follow_user
   end
-  
-  def following
-    user = User.find_by(username: params[:username])
-    render json: user.followees 
-  end
-
-  def followers
-    user = User.find_by(username: params[:username])
-    render json: user.followers
-  end
 
   def unfollow
     unfollow_user = User.find(params[:id])
-    @current_user.followed_users.find_by(followee_id: unfollow_user.id).destroy
-    render json: {}
+    # @current_user.followed_users.find_by(followee_id: unfollow_user.id).destroy
+    @current_user.followed_users.find_by(followee_id: params[:id]).destroy
+    render json: unfollow_user
   end
 
   def recipes
     user = User.find_by(username: params[:username])
     # render json: {recipes: user.recipes}
     render json: user.recipes 
+  end
+  
+  def find_user
+    user = User.find_by(username: params[:username])
+    render json: user
   end
 
   def login
