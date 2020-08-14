@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     if likes
       render json: likes
     else
-      render json: {message: "no likes available"}
+      render json: {error: "no likes available"}
     end 
   end
 
@@ -19,7 +19,7 @@ class LikesController < ApplicationController
     if like.valid?
       render json: @likeable , status: :created
     else
-      render json: {message: like.errors.full_messages}, status: :bad_request
+      render json: {error: like.errors.full_messages}, status: :bad_request
     end
   end
 

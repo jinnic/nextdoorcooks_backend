@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_034132) do
+ActiveRecord::Schema.define(version: 2020_08_13_184606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 2020_08_07_034132) do
     t.integer "followee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "image"
+    t.string "video"
+    t.string "caption"
+    t.bigint "user_id"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_items_on_imageable_type_and_imageable_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|

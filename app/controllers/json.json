@@ -1,0 +1,64 @@
+{
+  "itmes" => {
+    "0" => # < ActionDispatch::Http::UploadedFile: 0x00007fbb57c21e78 @tempfile = # < Tempfile: /var/folders / mt / rjg5x7vj4yl_3xsl1vqlnnsr0000gn / T / RackMultipart20200813 - 10286 - 174 s5ez.jpeg > , @original_filename = "download.jpeg", @content_type = "image/jpeg", @headers = "Content-Disposition: form-data; name=\"itmes[0]\"; filename=\"download.jpeg\"\r\nContent-Type: image/jpeg\r\n" > ,
+    "1" => # < ActionDispatch::Http::UploadedFile: 0x00007fbb57c21db0 @tempfile = # < Tempfile: /var/folders / mt / rjg5x7vj4yl_3xsl1vqlnnsr0000gn / T / RackMultipart20200813 - 10286 - f65sqk.pdf > , @original_filename = "wallmart-fan20200804.pdf", @content_type = "application/pdf", @headers = "Content-Disposition: form-data; name=\"itmes[1]\"; filename=\"wallmart-fan20200804.pdf\"\r\nContent-Type: application/pdf\r\n" > , 
+    "2" => # < ActionDispatch::Http::UploadedFile: 0x00007fbb57c21c48 @tempfile = # < Tempfile: /var/folders / mt / rjg5x7vj4yl_3xsl1vqlnnsr0000gn / T / RackMultipart20200813 - 10286 - 10 w2ktk.png > , @original_filename = "prosc_hell_zone.png", @content_type = "image/png", @headers = "Content-Disposition: form-data; name=\"itmes[2]\"; filename=\"prosc_hell_zone.png\"\r\nContent-Type: image/png\r\n" >
+  }, 
+  "imageable_type" => "Recipe", 
+  "user_id" => "9", 
+  "controller" => "items", 
+  "action" => "create"
+}
+permitted: false >
+  <
+  ActionController::Parameters {
+    "itmes" => {
+      "0" => # < ActionDispatch::Http::UploadedFile: 0x00007fbb57c21e78 @tempfile = # < Tempfile: /var/folders / mt / rjg5x7vj4yl_3xsl1vqlnnsr0000gn / T / RackMultipart20200813 - 10286 - 174 s5ez.jpeg > , @original_filename = "download.jpeg", @content_type = "image/jpeg", @headers = "Content-Disposition: form-data; name=\"itmes[0]\"; filename=\"download.jpeg\"\r\nContent-Type: image/jpeg\r\n" > , "1" => # < ActionDispatch::Http::UploadedFile: 0x00007fbb57c21db0 @tempfile = # < Tempfile: /var/folders / mt / rjg5x7vj4yl_3xsl1vqlnnsr0000gn / T / RackMultipart20200813 - 10286 - f65sqk.pdf > , @original_filename = "wallmart-fan20200804.pdf", @content_type = "application/pdf", @headers = "Content-Disposition: form-data; name=\"itmes[1]\"; filename=\"wallmart-fan20200804.pdf\"\r\nContent-Type: application/pdf\r\n" > , "2" => # < ActionDispatch::Http::UploadedFile: 0x00007fbb57c21c48 @tempfile = # < Tempfile: /var/folders / mt / rjg5x7vj4yl_3xsl1vqlnnsr0000gn / T / RackMultipart20200813 - 10286 - 10 w2ktk.png > , @original_filename = "prosc_hell_zone.png", @content_type = "image/png", @headers = "Content-Disposition: form-data; name=\"itmes[2]\"; filename=\"prosc_hell_zone.png\"\r\nContent-Type: image/png\r\n" >
+    }, "imageable_type" => "Recipe", "user_id" => "9", "controller" => "items", "action" => "create"
+  }
+
+  (3) [{…}, {…}, {…}]
+  0:
+    asset_id: "0704a159263991d916262bf8bd8495cf"
+    bytes: 293434
+    created_at: "2020-08-13T23:44:49Z"
+    etag: "a1265ced1be7db016e5e2f23d3d210dc"
+    format: "jpg"
+    height: 1200
+    original_extension: "jpeg"
+    original_filename: "download"
+    placeholder: false
+    public_id: "r3zwrm0rabea8rd4gbvy"
+    resource_type: "image"
+    secure_url: "https://res.cloudinary.com/upintheair/image/upload/v1597362289/r3zwrm0rabea8rd4gbvy.jpg"
+    signature: "e5e5d01e91fdb83279b7866cf2f5e62700735cd2"
+    tags: []
+    type: "upload"
+    url: "http://res.cloudinary.com/upintheair/image/upload/v1597362289/r3zwrm0rabea8rd4gbvy.jpg"
+    version: 1597362289
+    version_id: "fea1432579ebc960961b4f8f08b9fedf"
+    width: 1800
+    __proto__: Object
+1:
+asset_id: "0d9baa5002a7f7c2d35dec1906c5d144"
+bytes: 136748
+created_at: "2020-08-13T23:44:50Z"
+etag: "9ae1b068e96c8fa83981dfd65c5e2c5d"
+format: "pdf"
+height: 792
+original_filename: "wallmart-fan20200804"
+pages: 2
+placeholder: false
+public_id: "xmiswx3pmh9hzgcyiypf"
+resource_type: "image"
+secure_url: "https://res.cloudinary.com/upintheair/image/upload/v1597362290/xmiswx3pmh9hzgcyiypf.pdf"
+signature: "673a46638a368cb79426f6974496848a3f45e723"
+tags: []
+type: "upload"
+url: "http://res.cloudinary.com/upintheair/image/upload/v1597362290/xmiswx3pmh9hzgcyiypf.pdf"
+version: 1597362290
+version_id: "cf1b19d7ccb7123bec40149b7863b814"
+width: 612
+__proto__: Object
+2: {asset_id: "a789ad4f467ebc115704a9c835af3df8", public_id: "rzn36nc0d9uslervxvnw", version: 1597362291, version_id: "e84522511b8f43d5f5426c559c5deee0", signature: "c8901f9370d799069742f427d644efeaaad978d7", …}
+length: 3

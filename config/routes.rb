@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :experiances
   resources :recipes
   resources :ratings
-  resources :users, only: [:create, :index]
-
+  resources :users, only: [:create, :index, :destroy]
+  resources :items, only: [:create]
   # resources :status_updates do
   #   resources :likes
   #   resources :recipes do
@@ -17,14 +17,12 @@ Rails.application.routes.draw do
   get "/autologin", to: "users#autologin"
   get "/logout", to: "users#logout"
   patch "/profile", to: "users#profile"
+
   post '/follow/:id', to: "users#follow"
   post '/unfollow/:id', to: "users#unfollow"
 
   get '/users/:id/following', to: "users#following"
-  # get ':id/following', to: "users#following", as: "following"
-  # get ':username/followers', to: "users#followers", as: "followers"
-  # post '/users/:id/follow', to: "users#follow", as: "follow_user"
-  # post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+  get '/users/:id/followers', to: "users#followers"
   
   # get ":username/recipes", to: "users#recipes"
   # get ":username", to: "users#find_user"
