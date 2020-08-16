@@ -18,12 +18,14 @@ ActiveRecord::Schema.define(version: 2020_08_13_184606) do
   create_table "experiances", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "cuisines", default: [], array: true
     t.integer "durationMin"
     t.integer "size"
     t.datetime "dates", array: true
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cuisines"], name: "index_experiances_on_cuisines", using: :gin
     t.index ["dates"], name: "index_experiances_on_dates", using: :gin
   end
 
@@ -70,12 +72,14 @@ ActiveRecord::Schema.define(version: 2020_08_13_184606) do
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "cuisines", default: [], array: true
     t.json "duration"
     t.json "ingredients"
     t.json "instructions"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cuisines"], name: "index_recipes_on_cuisines", using: :gin
   end
 
   create_table "users", force: :cascade do |t|

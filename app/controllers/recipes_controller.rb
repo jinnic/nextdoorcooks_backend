@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
     recipe = Recipe.create(
       name: recipeObj["name"],
       duration: recipeObj["duration"].to_i,
+      cuisines: recipeObj["cuisines"],
       description: recipeObj["description"],
       ingredients: recipeObj["ingredients"],
       instructions: recipeObj["instructions"],
@@ -38,6 +39,7 @@ class RecipesController < ApplicationController
     recipe.update(
       name: params[:name],
       duration: params[:duration],
+      cuisines: recipeObj[:cuisines],
       description: params[:description],
       ingredients: params[:ingredients],
       instructions: params[:instructions],
