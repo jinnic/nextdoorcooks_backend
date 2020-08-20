@@ -34,12 +34,12 @@ class RecipesController < ApplicationController
   end
 
   def update
-    
+    # byebug
     recipe = Recipe.find(params[:id])
     recipe.update(
       name: params[:name],
       duration: params[:duration],
-      cuisines: recipeObj[:cuisines],
+      cuisines: params[:cuisines],
       description: params[:description],
       ingredients: params[:ingredients],
       instructions: params[:instructions],
