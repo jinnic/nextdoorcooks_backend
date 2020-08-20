@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :likes
+  resources :likes, only: [:create, :index]
   resources :experiances
   resources :recipes
   resources :ratings
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #   end
   # end
   
-  
+  get '/likes/:id', to: "likes#likes_by_user"
   post "/login", to: "users#login" 
   get "/autologin", to: "users#autologin"
   get "/logout", to: "users#logout"

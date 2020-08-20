@@ -23,6 +23,18 @@ class LikesController < ApplicationController
     end
   end
 
+  def likes_by_user
+    user = User.find(params[:id])
+    users_likes_ids = user.likes.where(likeable_type: "Recipe").map{|t| t.likeable_id}
+    recipes = Recipe.where(id: users_likes_ids)
+
+    if recipes
+      render json: recipes
+    else
+      render json: {error: "no likes available"}
+    end 
+  end
+
   def destroy
     like = Like.find(params[:id])
     like.destroy
