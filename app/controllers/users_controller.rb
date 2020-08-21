@@ -128,7 +128,9 @@ class UsersController < ApplicationController
     @current_user.update(
       location: params[:location],
       bio: params[:bio],
-      avatar: params[:avatar]
+      avatar: params[:avatar],
+      title: params[:title],
+      about: params[:about]
     )
 
     render json: @current_user
