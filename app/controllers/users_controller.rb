@@ -94,8 +94,8 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       token = encode_token({ user_id: user.id})
       # render json: user #implicitly run serializer 
-      # but when using custom json, need to add User.serializer.nwe(user)
-      render json: {user: UserSerializer.new(user), token: token}
+      # but when using custom json, need to add User.serializer.new(user)
+      render json: {user: user, token: token}
     else
       render json: {error: "Invalid username or password", user: user.authenticate(params[:password])}, status: :unauthorized
     end
