@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
+  
   validates :username, uniqueness: { case_sensitive: false }
+  validates :user_name, presence: true
+
   has_many :recipes, dependent: :destroy
   has_many :experiances, dependent: :destroy
   has_many :ratings, dependent: :destroy

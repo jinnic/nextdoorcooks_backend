@@ -180,12 +180,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.10.10)
+  active_model_serializers
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
   cloudinary
-  jwt (~> 2.2)
+  jwt
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

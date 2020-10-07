@@ -13,10 +13,15 @@ Rails.application.routes.draw do
   # end
   
   get '/likes/:id', to: "likes#likes_by_user"
-  post "/login", to: "users#login" 
-  get "/autologin", to: "users#autologin"
-  get "/logout", to: "users#logout"
+  # original login from user controller
+  # post "/login", to: "users#login" 
+  # get "/autologin", to: "users#autologin"
+  # get "/logout", to: "users#logout"
   patch "/profile", to: "users#profile"
+
+  # updated login with seperate auth controller
+  post "/login", to: "auth#login"
+  get "/auto_login", to: "auth#auto_login"
 
   post '/follow/:id', to: "users#follow"
   post '/unfollow/:id', to: "users#unfollow"
