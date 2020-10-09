@@ -5,12 +5,6 @@ Rails.application.routes.draw do
   resources :ratings
   resources :users, only: [:create, :index, :destroy]
   resources :items, only: [:create, :update]
-  # resources :status_updates do
-  #   resources :likes
-  #   resources :recipes do
-  #     resources :likes
-  #   end
-  # end
   
   get '/likes/:id', to: "likes#likes_by_user"
   # original login from user controller

@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
+  skip_before_action :require_login, only: [:index]
+  
   include AddImageable
-
+  
   def index
     recipes = Recipe.all
     if recipes
