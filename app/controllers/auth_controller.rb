@@ -16,7 +16,7 @@ class AuthController < ApplicationController
     if session_user
       render json: session_user
     else
-      render json: {errors: "No User Logged In"}
+      render json: {error: "No User Logged In"}
     end
   end
 
