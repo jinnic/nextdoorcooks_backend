@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-  
+  skip_before_action :require_login
   before_action :find_rateable, only: [:create, :update]
 
   def index
